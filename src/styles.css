@@ -1,0 +1,74 @@
+body {
+  background: #20262e;
+  padding: 20px;
+  font-family: Helvetica;
+}
+
+.App {
+  text-align: center;
+  border-radius: 4px;
+  padding: 20px;
+  transition: all 0.2s;
+}
+
+.light-theme,
+.dark-theme {
+  transition: background-color 0.5s cubic-bezier(0.42, 0, 0.58, 1),
+    color 0.5s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.light-theme {
+  background-color: #fff;
+  color: #000;
+}
+
+.dark-theme {
+  background-color: #20262e;
+  color: aliceblue;
+}
+
+.theme-indicator {
+  display: inline-flex;
+  flex-flow: row nowrap;
+  position: relative;
+  height: 3rem;
+  width: 6rem;
+  margin: 0 1rem;
+}
+
+.theme-indicator > * {
+  flex-basis: 100%;
+}
+
+.theme-indicator-animation > * {
+  position: relative;
+  bottom: 10rem;
+  animation: dropIn 0.5s cubic-bezier(0.17, 0.67, 0.06, 1.19) forwards,
+    vanish 0.5s cubic-bezier(0.53, 0, 0.37, 1.22) forwards;
+}
+
+.theme-indicator > :nth-child(1) {
+  animation-delay: 0s;
+}
+
+.theme-indicator > :nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+@keyframes vanish {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes dropIn {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(10rem);
+  }
+}
